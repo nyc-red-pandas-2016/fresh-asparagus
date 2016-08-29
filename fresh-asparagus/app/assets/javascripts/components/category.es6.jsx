@@ -1,14 +1,15 @@
 class Category extends React.Component {
 
+
   render() {
-
-
-    var linkPrefix = "/categories/"
+    var link = "/films/"
     return(
       <div>
-      {this.props.data.map((category, i) =>
-        <a href={linkPrefix.concat(category.id)}><li key={i}> <h1> {category.name} </h1></li></a>
-      )}
+        <ul>
+        {this.props.data.map((film, i) =>
+          <li key={i}><a href={link.concat(film.id)}><h1> {film.title}</h1></a></li>
+        )}
+        </ul>
       </div>
     )
   }

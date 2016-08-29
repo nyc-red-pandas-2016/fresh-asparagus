@@ -20,12 +20,14 @@ class Home extends React.Component {
   // };
 
   render() {
-
+    var linkPrefix = "/categories/"
     return(
       <div>
         <h1>Fresh Asparagus Movies</h1>
           <ul>
-            <Category data={this.props.data} />
+            {this.props.data.map((category, i) =>
+              <a href={linkPrefix.concat(category.id)}><li key={i}> <h1> {category.name} </h1></li></a>
+            )}
           </ul>
       </div>
     )
