@@ -6,8 +6,8 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:show]
   resources :films, only: [:show]
-  resources :reviews, only: [:create, :new]
-  resources :comments, only: [:create, :new]
+  resources :reviews, only: [:create, :new, :index]
+  resources :comments, only: [:create, :new, :index]
   resources :votes, only: [:create, :new]
   resources :static, only: [:index]
 

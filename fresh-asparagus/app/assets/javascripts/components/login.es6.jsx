@@ -1,5 +1,6 @@
 class Login extends React.Component {
 
+  // renders the nav bar for the website.
   render() {
     return (
       <nav>

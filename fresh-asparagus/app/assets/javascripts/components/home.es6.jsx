@@ -1,24 +1,7 @@
 class Home extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      categories: []
-    }
-  };
 
-  // componentDidMount() {
-  //
-  //   $.ajax({
-  //     url: '/categories/show',
-  //     method: 'GET'
-  //   }).done((response) => {
-  //     this.setState({
-  //       categories: response
-  //     });
-  //   });
-  //
-  // };
-
+  // Renders all the categories in the homepage.
+  // Each category is a link to its specific category.
   render() {
     var linkPrefix = "/categories/"
     return(
