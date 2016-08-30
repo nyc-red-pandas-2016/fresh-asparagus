@@ -5,7 +5,12 @@ class FilmsController < ApplicationController
     @comments = @film.comments
     @reviews = @film.reviews
     # @reviewComments
-    @user_id = current_user.id
-    @user_trusted = current_user.trusted
+    if current_user
+      @user_id = current_user.id
+      @user_trusted = current_user.trusted
+    else
+      @user_id = 0
+      @user_trusted = false
+    end
   end
 end
