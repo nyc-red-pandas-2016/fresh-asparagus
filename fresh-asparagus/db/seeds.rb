@@ -7,9 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-elizabeth = User.create({name: "Rotten Tooth '94", email: "elizabeth@gmail.com", password: "password", trusted: true})
-marco = User.create({name: "Marcoa", email: "marcoa@gmail.com", password: "password", trusted: true})
-walter = User.create({name: "Walter", email: "walter@gmail.com", password: "password", trusted: false})
+elizabeth = User.create({name: "Rotten Tooth '94", email: "elizabeth@gmail.com", password: "password", admin_code: "FocusVitaminWaterXXX"})
+marco = User.create({name: "Marcoa", email: "marcoa@gmail.com", password: "password", admin_code: "FocusVitaminWaterXXX"})
+walter = User.create({name: "Walter", email: "walter@gmail.com", password: "password", admin_code: "plz make me an admin"})
 
 drama = Category.create({name: "Drama"})
 action = Category.create({name: "Action"})

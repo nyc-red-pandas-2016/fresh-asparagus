@@ -5,23 +5,23 @@ class Film extends React.Component {
 
   constructor() {
     super();
-    // debugger;
     this.state = {
       comments: [],
-      reviews: []
+      reviews: [],
+      votes: 0
     }
-    // debugger;
     this.updateComments = this.updateComments.bind(this);
     this.updateReviews = this.updateReviews.bind(this);
+    this.updateVotes = this.updateVotes.bind(this);
   }
 
   componentDidMount() {
     this.updateComments(null);
     this.updateReviews(null);
+    this.setState({votes: this.props.votes});
   }
 
   updateComments(newComment) {
-    // debugger;
     if (newComment) {
       this.setState({comments: this.state.comments.concat(newComment)});
     } else {
@@ -30,11 +30,17 @@ class Film extends React.Component {
   }
 
   updateReviews(newReview) {
-    // debugger;
     if (newReview) {
       this.setState({reviews: this.state.reviews.concat(newReview)});
+    }
+  }
+
+  updateVotes(newVote) {
+    if (newVote) {
+      this.state.votes++;
+      this.setState({votes: this.state.votes});
     } else {
-      this.setState({reviews: this.props.reviews});
+      this.setState({votes: this.state.votes});
     }
   }
 
@@ -45,9 +51,10 @@ class Film extends React.Component {
         <h1>{film.title}</h1>
         Director: {film.director}
         <p>Plot: {film.summary}</p>
-        Year: {film.year}
+        Year: {film.year}<br/>
+        <Vote updateVotes={this.updateVotes} votes={this.state.votes} parent_class="Film" parent_id={film.id} user_id={this.props.user_id}/>
 
-        <Review updateReviews={this.updateReviews} user_id={this.props.user_id} reviews={this.state.reviews} film={this.props.film}  trusted={this.props.trusted}/>
+        <Review updateReviews={this.updateReviews} user_id={this.props.user_id} reviews={this.state.reviews} film={this.props.film} isAdmin={this.props.isAdmin}/>
         <Comment updateComments={this.updateComments} user_id={this.props.user_id} parent_class="Film" comments={this.state.comments} film={this.props.film}/>
       </div>
     )

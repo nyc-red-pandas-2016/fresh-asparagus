@@ -13,4 +13,8 @@ class User < ApplicationRecord
   has_many :reviews
 
   has_many :comments
+
+  def is_admin?
+    self.admin_code == "FocusVitaminWaterXXX"
+  end
 end
