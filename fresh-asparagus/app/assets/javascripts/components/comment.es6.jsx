@@ -1,9 +1,9 @@
 class Comment extends React.Component {
 
-  // constructor() {
-  //   super();
-  //   this.handleSubmit = this.handleSubmit.bind(this);
-  // }
+  constructor() {
+    super();
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
   // componentDidMount() {
   //   this.handleSubmit();
@@ -13,17 +13,21 @@ class Comment extends React.Component {
     event.preventDefault();
     var filmId = this.props.film.id
     var commentBody = this.refs.commentBody
-
     $.ajax({
       method: "POST",
       url: "/comments",
       data: {
-        body: commentBody.value,
-        id: filmId,
-        user_id: 1
+        comment: {
+          body: commentBody.value,
+          commentable_id: filmId,
+          commentable_type: this.props.parent_class,
+          user_id: this.props.user_id
+        }
       }
     }).done((response) => {
-      debugger;
+      // debugger;
+      this.refs.commentBody.value = "";
+      this.props.updateComments(response);
     })
   }
 
@@ -33,15 +37,15 @@ class Comment extends React.Component {
     return(
       <div>
         <h3>Comments:</h3>
-          <form onSubmit={this.handleSubmit.bind(this)} action='/comments' method='post' >
+          <form onSubmit={this.handleSubmit} action='/comments' method='post' >
             <label>Leave a comment for the film:</label>
             <input ref='commentBody' type='text' name='body'/>
             <input type="submit" value="Create Comment"/>
           </form>
         <ul>
-          {this.props.comments.map((comment, i) =>
-            <li key={i}>{comment.body}</li>
-          )}
+          {this.props.comments.map((comment, i) => {
+            return <li key={i}>{comment.body}</li>;
+          })}
         </ul>
       </div>
     );
