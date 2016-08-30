@@ -4,8 +4,7 @@ Rails.application.routes.draw do
 
   root 'categories#index'
 
-  resources :categories, only: [:show]
-  resources :films, only: [:show]
+  resources :categories, :films, only: [:show]
   resources :reviews, only: [:create, :new, :index]
   resources :comments, only: [:create, :new, :index]
   resources :votes, only: [:create, :new]

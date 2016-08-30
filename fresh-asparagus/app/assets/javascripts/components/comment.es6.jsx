@@ -48,7 +48,7 @@ class Comment extends React.Component {
         }
         <ul>
           {this.props.comments.map((comment, i) => {
-            return <li key={i}>{comment.body}</li>;
+            return (<li key={i}>{comment.body}</li>);
           })}
         </ul>
       </div>

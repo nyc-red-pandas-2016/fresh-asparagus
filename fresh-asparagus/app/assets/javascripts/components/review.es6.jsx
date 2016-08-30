@@ -32,7 +32,7 @@ class Review extends React.Component {
     return(
       <div>
         <h3>Reviews:</h3>
-          {this.props.trusted ?
+          {this.props.isAdmin ?
             <form onSubmit={this.handleSubmit} action='/reviews' method='post' >
               <label>Review the film:</label>
               <input ref='starRating' type='number' name='body'/>
@@ -48,7 +48,6 @@ class Review extends React.Component {
               <ul key={i}>
                 <li>{review.star_rating.toString()}</li>
                 <li>{review.content}</li>
-                {/* <li><Comment updateComments={this.updateComments} user_id={this.props.user_id} parent_class="Review" comments={this.state.comments} film={this.props.film}/></li> */}
               </ul>
             );
           })}
