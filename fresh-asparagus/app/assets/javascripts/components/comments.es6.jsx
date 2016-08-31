@@ -31,7 +31,7 @@ class Comments extends React.Component {
       <div>
         {this.props.user_id != 0 ?
           <form onSubmit={this.handleSubmit} action='/comments' method='post' >
-            <label>Leave a comment for the film:</label><br/><br/>
+            <label><h4>Leave a Comment for this {this.props.parent_class}:</h4></label>
             <input ref='commentBody' type='text' name='body'/><br/>
             <input type="submit" value="Create Comment"/>
           </form>
