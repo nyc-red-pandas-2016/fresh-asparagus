@@ -6,4 +6,8 @@ class AsparagusController < ApplicationController
     render json: comments
   end
 
+  def index
+    
+  end
+
 end

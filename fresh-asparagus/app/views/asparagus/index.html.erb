@@ -1,0 +1,34 @@
+<h1> <%= current_user.name %>'s Account</h1>
+<% if current_user.is_admin? %>
+  <h2> Reviews </h2>
+<% end %>
+ <% current_user.reviews.each do |review| %>
+   <ul class="comment-item">
+    <li> <%= review.film.title %> </li>
+    <li> <%= review.star_rating %> &#9733</li>
+    <li> <%= review.content %> </li>
+   </ul>
+ <% end %>
+
+
+  <h2> Comments on Films </h2>
+  <% current_user.comments.each do |comment| %>
+    <% if comment.commentable_type == "Film" %>
+      <ul class="comment-item">
+       <li> Movie Title: <%= Film.find(comment.commentable_id).title %> </li>
+       <li> <%= comment.body %></li>
+      </ul>
+    <% end %>
+  <% end %>
+
+
+    <h2> Comments on Reviews </h2>
+    <% current_user.comments.each do |comment| %>
+      <% if comment.commentable_type == "Review" %>
+        <ul class="comment-item">
+         <li> Film: <%= Film.find(Review.find(comment.commentable_id).film.id).title %> </li>
+         <li> Review: <%= Review.find(comment.commentable_id).content %> </li>
+         <li> Comment: <%= comment.body %></li>
+        </ul>
+      <% end %>
+    <% end %>
