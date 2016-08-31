@@ -32,6 +32,8 @@ class Film extends React.Component {
   updateReviews(newReview) {
     if (newReview) {
       this.setState({reviews: this.state.reviews.concat(newReview)});
+    } else {
+      this.setState({reviews: this.props.reviews})
     }
   }
 
@@ -54,7 +56,7 @@ class Film extends React.Component {
         Year: {film.year}<br/>
         <Vote updateVotes={this.updateVotes} votes={this.state.votes} parent_class="Film" parent_id={film.id} user_id={this.props.user_id}/>
 
-        <Review updateReviews={this.updateReviews} user_id={this.props.user_id} reviews={this.state.reviews} film={this.props.film} isAdmin={this.props.isAdmin}/>
+        <Reviews updateReviews={this.updateReviews} user_id={this.props.user_id} reviews={this.state.reviews} film={this.props.film} isAdmin={this.props.isAdmin}/>
         <Comment updateComments={this.updateComments} user_id={this.props.user_id} parent_class="Film" comments={this.state.comments} film={this.props.film}/>
       </div>
     )

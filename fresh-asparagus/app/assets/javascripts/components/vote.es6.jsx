@@ -7,7 +7,6 @@ class Vote extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    // debugger;
     $.ajax({
       method: "POST",
       url: "/votes",
@@ -19,7 +18,6 @@ class Vote extends React.Component {
         }
       }
     }).done((response) => {
-      // debugger;
       this.props.updateVotes(response);
     })
   }
@@ -27,6 +25,7 @@ class Vote extends React.Component {
   render() {
     return(
       <div>
+        <br/>
         {this.props.user_id != 0 ?
           <form onSubmit={this.handleSubmit} action='/votes' method='post' >
             <input type="submit" value="Vote"/>
