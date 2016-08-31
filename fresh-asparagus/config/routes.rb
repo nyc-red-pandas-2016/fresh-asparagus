@@ -4,9 +4,10 @@ Rails.application.routes.draw do
 
   root 'categories#index'
 
+  resources :asparagus, only: [:show]
   resources :categories, :films, only: [:show]
-  resources :reviews, only: [:create, :new, :index]
-  resources :comments, only: [:create, :new, :index]
+  resources :reviews, only: [:create, :new, :index, :show]
+  resources :comments, only: [:create, :new, :index, :show]
   resources :votes, only: [:create, :new]
   resources :static, only: [:index]
 
