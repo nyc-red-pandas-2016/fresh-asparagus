@@ -50,6 +50,7 @@ class Film extends React.Component {
     let film = this.props.film
     return(
       <div id="film-info">
+      <iframe src="//giphy.com/embed/AMNZdQxPeo2cg" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
         <h1>{film.title}</h1>
         Director: {film.director}
         <p>Plot: {film.summary}</p>
