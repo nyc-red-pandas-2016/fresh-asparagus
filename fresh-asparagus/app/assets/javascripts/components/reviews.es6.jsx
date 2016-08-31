@@ -48,7 +48,7 @@ class Reviews extends React.Component {
           {this.props.reviews.map((review, i) => {
             return (
               <ul key={i}>
-                <Review starRating={review.star_rating} content={review.content} />
+                <Review review={review} user_id={this.props.user_id}/>
               </ul>
             );
           })}

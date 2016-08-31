@@ -1,0 +1,2 @@
+module AsparagusHelper
+end

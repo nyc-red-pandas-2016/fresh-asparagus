@@ -57,7 +57,7 @@ class Film extends React.Component {
         <Vote updateVotes={this.updateVotes} votes={this.state.votes} parent_class="Film" parent_id={film.id} user_id={this.props.user_id}/>
 
         <Reviews updateReviews={this.updateReviews} user_id={this.props.user_id} reviews={this.state.reviews} film={this.props.film} isAdmin={this.props.isAdmin}/>
-        <Comment updateComments={this.updateComments} user_id={this.props.user_id} parent_class="Film" comments={this.state.comments} film={this.props.film}/>
+        <Comments updateComments={this.updateComments} user_id={this.props.user_id} parent_class="Film" comments={this.state.comments} parentID={this.props.film.id}/>
       </div>
     )
   }

@@ -2,55 +2,41 @@ class Comment extends React.Component {
 
   constructor() {
     super();
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = {
+      votes: 0
+    }
+    this.updateVotes = this.updateVotes.bind(this);
+    this.numberOfVotes = this.numberOfVotes.bind(this);
   }
 
-  // componentDidMount() {
-  //   this.handleSubmit();
-  // }
+  componentDidMount() {
+    this.numberOfVotes();
+  }
 
-  handleSubmit(event) {
-    event.preventDefault();
-    var filmId = this.props.film.id
-    var commentBody = this.refs.commentBody
+  numberOfVotes() {
     $.ajax({
-      method: "POST",
-      url: "/comments",
-      data: {
-        comment: {
-          body: commentBody.value,
-          commentable_id: filmId,
-          commentable_type: this.props.parent_class,
-          user_id: this.props.user_id
-        }
-      }
+      method: "GET",
+      url: "/comments/" + this.props.comment.id.toString(),
     }).done((response) => {
-      // debugger;
-      this.refs.commentBody.value = "";
-      this.props.updateComments(response);
+      this.setState({votes: parseInt(response)});
     })
   }
 
-  // Renders comments for a specific film.
-  // Renders a comment form for the film.
+  updateVotes(newVote) {
+    if (newVote) {
+      this.state.votes++;
+      this.setState({votes: this.state.votes});
+    } else {
+      this.setState({votes: this.state.votes});
+    }
+  }
+
   render() {
     return(
       <div>
-        {this.props.user_id != 0 ?
-          <form onSubmit={this.handleSubmit} action='/comments' method='post' >
-            <label>Leave a comment for the film:</label><br/><br/>
-            <input ref='commentBody' type='text' name='body'/><br/>
-            <input type="submit" value="Create Comment"/>
-          </form>
-          :
-          <h4>Must be logged in to comment</h4>
-        }
-        <h3>Comments:</h3>
-
-        <ul>
-          {this.props.comments.map((comment, i) => {
-            return (<li className="comment-item" key={i}>{comment.body}</li>);
-          })}
+        <ul className="comment-item">
+          <li>{this.props.comment.body}</li>
+          <Vote updateVotes={this.updateVotes} votes={this.state.votes} parent_class="Comment" parent_id={this.props.comment.id} user_id={this.props.user_id}/>
         </ul>
       </div>
     );
