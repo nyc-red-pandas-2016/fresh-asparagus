@@ -5,6 +5,7 @@ class Category extends React.Component {
     var filmLink = "/films/"
     return(
       <div id="category-wrapper">
+      <iframe src="//giphy.com/embed/5YNbv4BFFPcIg" width="480" height="269" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
         <h1>View All Movies in This Category</h1>
         <ul>
         {this.props.data.map((film, i) =>
