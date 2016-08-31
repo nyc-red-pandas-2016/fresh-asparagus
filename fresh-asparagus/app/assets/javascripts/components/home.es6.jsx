@@ -5,11 +5,11 @@ class Home extends React.Component {
   render() {
     var linkPrefix = "/categories/"
     return(
-      <div>
-        <h1>Fresh Asparagus Movies</h1>
+      <div id="home-wrapper">
+        <h1>View all categories</h1>
           <ul>
             {this.props.data.map((category, i) =>
-              <a href={linkPrefix.concat(category.id)}><li key={i}> <h1> {category.name} </h1></li></a>
+              <a href={linkPrefix.concat(category.id)}><li key={i}> <h3> {category.name} </h3></li></a>
             )}
           </ul>
       </div>

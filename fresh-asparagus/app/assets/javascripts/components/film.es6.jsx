@@ -49,7 +49,7 @@ class Film extends React.Component {
   render() {
     let film = this.props.film
     return(
-      <div>
+      <div id="film-info">
         <h1>{film.title}</h1>
         Director: {film.director}
         <p>Plot: {film.summary}</p>

@@ -1,19 +1,3 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
-
 * {
   font-family: sans-serif;
 }
@@ -32,6 +16,22 @@ body {
   background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
 }
 
+#content {
+  padding-top: 30px;
+}
+
+#film-info {
+  margin-top: 8%;
+}
+
+#home-wrapper {
+  margin-top: 8%;
+}
+
+#category-wrapper {
+  margin-top: 8%;
+}
+
 a {
   color: #ffffcc;
   text-decoration: none;
@@ -41,8 +41,18 @@ a:hover {
   color: #00ff00;
 }
 
+ul {
+  list-style-type: none;
+  list-style:none;
+  padding-left: 0px ;
+  margin-left: 20px ;
+  margin-right: 20px ;
+  text-indent: 0px ;
+}
+
 li {
   list-style-type: none;
+  list-style:none;
 }
 
 input[type=submit] {
@@ -56,27 +66,44 @@ nav {
   float: right;
   width: 100%;
   padding: 20px;
-  background:
-  radial-gradient(circle closest-side at 60% 43%, #b03 26%, rgba(187,0,51,0) 27%),
-  radial-gradient(circle closest-side at 40% 43%, #b03 26%, rgba(187,0,51,0) 27%),
-  radial-gradient(circle closest-side at 40% 22%, #d35 45%, rgba(221,51,85,0) 46%),
-  radial-gradient(circle closest-side at 60% 22%, #d35 45%, rgba(221,51,85,0) 46%),
-  radial-gradient(circle closest-side at 50% 35%, #d35 30%, rgba(221,51,85,0) 31%),
-
-  radial-gradient(circle closest-side at 60% 43%, #b03 26%, rgba(187,0,51,0) 27%) 50px 50px,
-  radial-gradient(circle closest-side at 40% 43%, #b03 26%, rgba(187,0,51,0) 27%) 50px 50px,
-  radial-gradient(circle closest-side at 40% 22%, #d35 45%, rgba(221,51,85,0) 46%) 50px 50px,
-  radial-gradient(circle closest-side at 60% 22%, #d35 45%, rgba(221,51,85,0) 46%) 50px 50px,
-  radial-gradient(circle closest-side at 50% 35%, #d35 30%, rgba(221,51,85,0) 31%) 50px 50px;
-  background-color:#b03;
-  background-size:100px 100px;
+  background-image: url("http://www.celebrityparentsmag.com/wp-content/uploads/2015/07/asparagus.jpg");
 }
 
 nav a {
-  color: #0d001a;
+  color: #e6ffe6;
+}
+
+nav li {
+  display: inline-block;
+  float: right;
+  margin-left: 15px;
+  margin-right: 15px;
+  padding-top: 15px;
+  padding: 5px;
+  background-color: black;
+  color: #e6ffe6;
+}
+
+#walter-is-so-fancy {
+  float: left;
+  color: black;
+  padding-left: 30px;
+  background-color: white;
+  font-size: xx-large;
+  font-family: fantasy;
+  font-weight: bold;
 }
 
 .comment-item {
   border: solid 1px white;
   padding: 5px;
+  background-color: black;
+}
+
+.comment-box {
+  text-align: center;
+  margin: auto;
+  color: black;
+  padding: 15px;
+  background-image: url("http://ottmag.com/wp-content/uploads/2016/04/Health-Benefits-Of-Asparagus.jpg");
 }

@@ -31,13 +31,11 @@ class Review extends React.Component {
       method: "GET",
       url: "/asparagus/" + this.props.review.id.toString(),
     }).done((response) => {
-      // debugger;
       this.setState({comments: response});
     })
   }
 
   updateComments(newComment) {
-    // debugger;
     if (newComment) {
       this.setState({comments: this.state.comments.concat(newComment)});
     } else {
@@ -54,11 +52,12 @@ class Review extends React.Component {
     }
   }
 
-  render() {
+  render() {    
     return(
       <div>
         <ul className="comment-item">
-          <li>{this.props.review.star_rating}</li>
+          <h2>Review from a Trusted Source</h2>
+          <li>{this.props.review.star_rating} &#9733;</li>
           <li>{this.props.review.content}</li>
           <Vote updateVotes={this.updateVotes} votes={this.state.votes} parent_class="Review" parent_id={this.props.review.id} user_id={this.props.user_id}/>
           <h3>Comments on this Review:</h3>

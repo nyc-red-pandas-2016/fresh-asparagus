@@ -43,7 +43,6 @@ class Reviews extends React.Component {
             :
             <h4>Must have permission to review this film.</h4>
           }
-          <h3>Reviews:</h3>
         <ul>
           {this.props.reviews.map((review, i) => {
             return (

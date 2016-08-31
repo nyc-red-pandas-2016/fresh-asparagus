@@ -11,6 +11,7 @@
 
   <body>
     <nav>
+      <li id="walter-is-so-fancy">Fresh Asparagus</li>
       <li><a href='/'>Home</a></li>
       <% if user_signed_in? %>
         <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
@@ -20,6 +21,8 @@
         <li><%= link_to 'Log In', new_user_session_path %></li>
       <% end %>
     </nav>
-    <%= yield %>
+    <div id="content">
+      <%= yield %>
+    </div>
   </body>
 </html>

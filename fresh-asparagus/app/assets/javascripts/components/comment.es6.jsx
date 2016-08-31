@@ -34,7 +34,7 @@ class Comment extends React.Component {
   render() {
     return(
       <div>
-        <ul className="comment-item">
+        <ul className="comment-item" className="comment-box">
           <li>{this.props.comment.body}</li>
           <Vote updateVotes={this.updateVotes} votes={this.state.votes} parent_class="Comment" parent_id={this.props.comment.id} user_id={this.props.user_id}/>
         </ul>
