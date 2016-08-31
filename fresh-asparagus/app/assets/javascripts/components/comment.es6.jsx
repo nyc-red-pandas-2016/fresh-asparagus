@@ -36,19 +36,20 @@ class Comment extends React.Component {
   render() {
     return(
       <div>
-        <h3>Comments:</h3>
         {this.props.user_id != 0 ?
           <form onSubmit={this.handleSubmit} action='/comments' method='post' >
-            <label>Leave a comment for the film:</label>
-            <input ref='commentBody' type='text' name='body'/>
+            <label>Leave a comment for the film:</label><br/><br/>
+            <input ref='commentBody' type='text' name='body'/><br/>
             <input type="submit" value="Create Comment"/>
           </form>
           :
           <h4>Must be logged in to comment</h4>
         }
+        <h3>Comments:</h3>
+
         <ul>
           {this.props.comments.map((comment, i) => {
-            return (<li key={i}>{comment.body}</li>);
+            return (<li className="comment-item" key={i}>{comment.body}</li>);
           })}
         </ul>
       </div>
